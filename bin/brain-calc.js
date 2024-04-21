@@ -53,5 +53,3 @@ const playGame = () => {
 };
 
 playGame();
-
-

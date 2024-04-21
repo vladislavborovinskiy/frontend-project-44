@@ -18,9 +18,7 @@ const generateQuestion = () => {
 };
 
 const startGame = () => {
-  console.log(
-    'Welcome to the Brain Games!\nFind the greatest common divisor of given numbers.'
-  );
+  console.log('Welcome to the Brain Games!\nFind the greatest common divisor of given numbers.');
 
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!\n`);
@@ -39,15 +37,11 @@ const startGame = () => {
       console.log('Correct!');
       correctAnswers += 1;
     } else {
-      console.log(
-        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`
-      );
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
     }
   }
 
-  console.log(
-    `Congratulations, ${playerName}! You answered ${correctAnswers} out of ${totalQuestions} questions correctly.`
-  );
+  console.log(`Congratulations, ${playerName}! You answered ${correctAnswers} out of ${totalQuestions} questions correctly.`);
 };
 
 startGame();

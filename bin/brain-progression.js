@@ -41,7 +41,8 @@ const runProgressionGame = (playerName) => {
   if (userAnswer === hiddenValue) {
     console.log('Correct!');
     return true;
-  } 
+  }
+
   console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${hiddenValue}'.`);
   console.log(`Let's try again, ${playerName}!`);
   return false;

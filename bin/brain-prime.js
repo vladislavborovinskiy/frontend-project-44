@@ -27,7 +27,8 @@ const runPrimeGame = (playerName) => {
   if (userAnswer === correctAnswer) {
     console.log('Correct!');
     return true;
-  } 
+  }
+
   console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   console.log(`Let's try again, ${playerName}!`);
   return false;
