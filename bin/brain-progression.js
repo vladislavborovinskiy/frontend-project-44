@@ -41,7 +41,7 @@ const runProgressionGame = (playerName) => {
     return true;
   }
 
-  console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${hiddenValue}'.`);
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${hiddenValue}'.`);
   console.log(`Let's try again, ${playerName}!`);
   return false;
 };
@@ -54,13 +54,19 @@ const playProgressionGame = () => {
   console.log('What number is missing in the progression?');
 
   let correctAnswers = 0;
-  while (correctAnswers < 3) {
+  let gameOver = false;
+
+  while (correctAnswers < 3 && !gameOver) {
     if (runProgressionGame(playerName)) {
       correctAnswers += 1;
+    } else {
+      gameOver = true;
     }
   }
 
-  console.log(`Congratulations, ${playerName}!`);
+  if (!gameOver) {
+    console.log(`Congratulations, ${playerName}!`);
+  }
 };
 
 playProgressionGame();
