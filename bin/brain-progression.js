@@ -21,8 +21,6 @@ const hideNumberInProgression = (progression, hiddenIndex) => {
 const formatProgression = (progression) => progression.join(' ');
 
 const runProgressionGame = (playerName) => {
-  console.log('What number is missing in the progression?');
-
   const start = getRandomNumber(1, 20);
   const step = getRandomNumber(1, 10);
   const length = getRandomNumber(5, 10);
@@ -43,7 +41,7 @@ const runProgressionGame = (playerName) => {
     return true;
   }
 
-  console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${hiddenValue}'.`);
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${hiddenValue}'.`);
   console.log(`Let's try again, ${playerName}!`);
   return false;
 };
@@ -53,6 +51,7 @@ const playProgressionGame = () => {
   const playerName = readlineSync.question('May I have your name? ');
 
   console.log(`Hello, ${playerName}!`);
+  console.log('What number is missing in the progression?');
 
   let correctAnswers = 0;
   while (correctAnswers < 3) {
