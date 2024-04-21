@@ -17,21 +17,25 @@ const isPrime = (num) => {
 const runPrimeGame = (playerName) => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-  const randomNumber = Math.floor(Math.random() * 100) + 1;
+  let correctAnswers = 0;
+  while (correctAnswers < 3) {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-  console.log(`Question: ${randomNumber}`);
+    console.log(`Question: ${randomNumber}`);
 
-  const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
-  const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
+    const userAnswer = readlineSync.question('Your answer: ');
 
-  if (userAnswer === correctAnswer) {
-    console.log('Correct!');
-    return true;
+    if (userAnswer.toLowerCase() === correctAnswer) {
+      console.log('Correct!');
+      correctAnswers += 1;
+    } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${playerName}!`);
+      return false;
+    }
   }
-
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${playerName}!`);
-  return false;
+  return true;
 };
 
 const playPrimeGame = () => {
@@ -40,14 +44,9 @@ const playPrimeGame = () => {
 
   console.log(`Hello, ${playerName}!`);
 
-  let correctAnswers = 0;
-  while (correctAnswers < 3) {
-    if (runPrimeGame(playerName)) {
-      correctAnswers += 1;
-    }
+  if (runPrimeGame(playerName)) {
+    console.log(`Congratulations, ${playerName}!`);
   }
-
-  console.log(`Congratulations, ${playerName}!`);
 };
 
 playPrimeGame();
