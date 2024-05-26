@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
+import getRandomInt from '../src/utils.js';
 
 const gcd = (a, b) => {
   if (b === 0) {
@@ -8,8 +9,6 @@ const gcd = (a, b) => {
   }
   return gcd(b, a % b);
 };
-
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const generateQuestion = () => {
   const num1 = getRandomInt(1, 100);

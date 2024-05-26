@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+import getRandomInt from '../src/utils.js';
 
 const generateProgression = (start, step, length) => {
   const progression = [];
@@ -21,13 +20,13 @@ const hideNumberInProgression = (progression, hiddenIndex) => {
 const formatProgression = (progression) => progression.join(' ');
 
 const runProgressionGame = (playerName) => {
-  const start = getRandomNumber(1, 20);
-  const step = getRandomNumber(1, 10);
-  const length = getRandomNumber(5, 10);
+  const start = getRandomInt(1, 20);
+  const step = getRandomInt(1, 10);
+  const length = getRandomInt(5, 10);
 
   const progression = generateProgression(start, step, length);
 
-  const hiddenIndex = getRandomNumber(0, length - 1);
+  const hiddenIndex = getRandomInt(0, length - 1);
 
   const hiddenProgressionObject = hideNumberInProgression([...progression], hiddenIndex);
   const { progression: hiddenProgression, hiddenValue } = hiddenProgressionObject;

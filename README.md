@@ -6,33 +6,33 @@
 
 # BRAIN-GAMES
 
-**Brain-games** - это коллекция из пяти увлекательных консольных игр, построенных по принципу "вопрос-ответ". Каждая игра задает вопросы, на которые пользовтелю необходимо дать ответ. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново.
+**Brain-games** is a collection of five engaging console games, built on the "question-answer" principle. Each game asks questions that the user needs to answer. After three correct answers, the game is considered passed. Incorrect answers end the game and offer to play it again.
 
-- `brain-even` - определение простого числа.
-- `brain-calc` - арифметические выражения, необходимые вычислить.
-- `brain-gcd` - определение наибольшего общего делителя.
-- `brain-progression` - поиск пропущенных чисел в последовательности чисел.
-- `brain-prime` - определение четного числа.
+- `brain-even` - determining a prime number.
+- `brain-calc` - arithmetic expressions that need to be calculated.
+- `brain-gcd` - determining the greatest common divisor.
+- `brain-progression` - finding missing numbers in a sequence of numbers.
+- `brain-prime` - determining an even number.
 
-## Минимальные требования:
+## Minimum requirements:
 
-- ОС: Windows 10, MacOS X, Linux;
-- Процессор: Intel Core i3;
-- Оперативная память: 4 ГБ.
+- OS: Windows 10, MacOS X, Linux;
+- Processor: Intel Core i3;
+- RAM: 4 GB.
 
-## Установка:
+## Installation:
 
-1. Установите Node.js с официального сайта: https://nodejs.org/;
-2. Команда `npm install` или `make install` - установка зависимостей;
-3. Команда `npm link` - установка пакетов локально на Ваш компьютер.
+1. Install Node.js from the official website: https://nodejs.org/;
+2. Command npm install or make install - install dependencies;
+3. Command npm link - install packages locally on your computer.
 
-## Запуск игр:
+## Running the games:
 
-- введите в терминале название игры;
-- введите Ваше имя и нажмите enter;
-- введите ответ и нажмите enter.
+- type the name of the game in the terminal;
+- enter your name and press "enter";
+- enter the answer and press "enter".
 
-## Игровой процесс:
+## Gameplay:
 
 ### [brain-even](https://imgur.com/a/ACmUbSn)
 
