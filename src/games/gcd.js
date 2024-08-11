@@ -6,8 +6,8 @@ import getRandomNumber from '../utils.js';
 const rules = 'Find the greatest common divisor of given numbers.';
 
 const generateRound = () => {
-  const a = getRandomNumber(1, 50);
-  const b = getRandomNumber(1, 50);
+  const a = getRandomNumber(1, 100);
+  const b = getRandomNumber(1, 100);
   const c = Math.min(a, b);
   const question = `${a} ${b}`;
 
