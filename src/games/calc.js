@@ -20,8 +20,8 @@ const calculation = (num1, num2, operator) => {
 };
 
 const generateRound = () => {
-  const firstNum = getRandomInRange();
-  const secondNum = getRandomInRange();
+  const firstNum = getRandomInRange(1, 100);
+  const secondNum = getRandomInRange(1, 100);
   const operator = getRandomOperator();
 
   const question = `${firstNum} ${operator} ${secondNum}`;
