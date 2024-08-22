@@ -1,7 +1,7 @@
 import startGame from '../index.js';
 import getRandomInRange from '../utils.js';
 
-const generateProgression = (increment, start, length) => {
+const generateProgression = (start, increment, length) => {
   const progression = [];
   for (let i = 0; i < length; i += 1) {
     progression.push(start + i * increment);
@@ -9,18 +9,11 @@ const generateProgression = (increment, start, length) => {
   return progression;
 };
 
-const findMissingNumber = (progression, increment) => {
-  const replacingElement = '..';
-  const randomIndex = getRandomInRange(0, progression.length - 1);
+const findMissingNumber = (progression) => {
+  const replacingIndex = getRandomInRange(0, progression.length - 1);
+  const correctAnswer = progression[replacingIndex];
   const newProgression = [...progression];
-  newProgression[randomIndex] = replacingElement;
-
-  let correctAnswer;
-  if (randomIndex === 0) {
-    correctAnswer = newProgression[1] - newProgression[0];
-  } else {
-    correctAnswer = newProgression[randomIndex - 1] + increment;
-  }
+  newProgression[replacingIndex] = '..';
 
   return [newProgression.join(' '), String(correctAnswer)];
 };
@@ -30,8 +23,8 @@ const generateRound = () => {
   const start = getRandomInRange(1, 100);
   const increment = getRandomInRange(2, 10);
 
-  const progression = generateProgression(increment, start, length);
-  return findMissingNumber(progression, increment);
+  const progression = generateProgression(start, increment, length);
+  return findMissingNumber(progression);
 };
 
 export default () => {
