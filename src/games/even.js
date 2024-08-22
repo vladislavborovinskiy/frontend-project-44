@@ -1,19 +1,17 @@
-#!/usr/bin/env node
-
-import game from '../index.js';
-import getRandomNumber from '../utils.js';
-
-const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+import startGame from '../index.js';
+import getRandomInRange from '../utils.js';
 
 const isEven = (number) => number % 2 === 0;
+const checkIsEven = (number) => (isEven(number) ? 'yes' : 'no');
 
 const generateRound = () => {
-  const question = getRandomNumber(1, 20);
-  const correctAnswer = isEven(question) ? 'yes' : 'no';
+  const question = getRandomInRange(1, 20);
+  const correctAnswer = checkIsEven(question);
 
   return [question, correctAnswer];
 };
 
 export default () => {
-  game(rules, generateRound);
+  const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+  startGame(description, generateRound);
 };

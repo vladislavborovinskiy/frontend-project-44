@@ -1,36 +1,36 @@
-#!/usr/bin/env node
+import startGame from '../index.js';
+import getRandomInRange from '../utils.js';
 
-import game from '../index.js';
-import getRandomNumber from '../utils.js';
+const getRandomOperator = () => {
+  const operators = ['+', '-', '*'];
+  return operators[getRandomInRange(0, operators.length - 1)];
+};
 
-const rules = 'What is the result of the expression?';
-
-const operator = ['+', '-', '*'];
+const calculation = (num1, num2, operator) => {
+  switch (operator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      throw new Error(`Invalid operator - ${operator}`);
+  }
+};
 
 const generateRound = () => {
-  const random = operator[getRandomNumber(0, 2)];
-  const a = getRandomNumber(0, 10);
-  const b = getRandomNumber(0, 10);
-  const question = `${a} ${random} ${b}`;
+  const firstNum = getRandomInRange();
+  const secondNum = getRandomInRange();
+  const operator = getRandomOperator();
 
-  let correctAnswer;
+  const question = `${firstNum} ${operator} ${secondNum}`;
+  const answer = String(calculation(firstNum, secondNum, operator));
 
-  switch (random) {
-    case '+':
-      correctAnswer = a + b;
-      break;
-    case '-':
-      correctAnswer = a - b;
-      break;
-    case '*':
-      correctAnswer = a * b;
-      break;
-    default:
-      throw new Error(`Unknown order state: '${random}'!`);
-  }
-  return [question, correctAnswer.toString()];
+  return [question, answer];
 };
 
 export default () => {
-  game(rules, generateRound);
+  const description = 'What is the result of the expression?';
+  startGame(description, generateRound);
 };

@@ -1,30 +1,30 @@
-#!/usr/bin/env node
+import startGame from '../index.js';
+import getRandomInRange from '../utils.js';
 
-import game from '../index.js';
-import getRandomNumber from '../utils.js';
+const findGCD = (num1, num2) => {
+  const minNum = Math.min(num1, num2);
 
-const rules = 'Find the greatest common divisor of given numbers.';
-
-const generateRound = () => {
-  const a = getRandomNumber(1, 100);
-  const b = getRandomNumber(1, 100);
-  const c = Math.min(a, b);
-  const question = `${a} ${b}`;
-
-  let correctAnswer = 1;
-
-  for (let i = c; i >= 1; i -= 1) {
-    if (a % i !== 0 || b % i !== 0) {
+  for (let i = minNum; i >= 1; i -= 1) {
+    if (num1 % i !== 0 || num2 % i !== 0) {
       i -= 1;
     } else {
-      correctAnswer = i;
-      break;
+      return i;
     }
   }
 
-  return [question, correctAnswer.toString()];
+  return 1;
+};
+
+const generateRound = () => {
+  const firstNum = getRandomInRange(1, 100);
+  const secondNum = getRandomInRange(1, 100);
+  const question = `${firstNum} ${secondNum}`;
+  const correctAnswer = findGCD(firstNum, secondNum).toString();
+
+  return [question, correctAnswer];
 };
 
 export default () => {
-  game(rules, generateRound);
+  const description = 'Find the greatest common divisor of given numbers.';
+  startGame(description, generateRound);
 };
